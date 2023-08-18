@@ -32,13 +32,17 @@ public class CalculatorController {
 		return CALCULATOR_TEMPLATE; // cf. resources/templates/calculator.html
 	}
 
+	// @valid reprend la classe Calculation en objet dans la balise form, le
+	// controller utilise les methodes de calculation
+	// pour recuperer les valeur aux attributs type, leftArgument, rightarguments de
+	// la classe Calculation ajouté avec les entrées utilisateur dans les champs
+	// du formulaire et les th:field qui relie au attribut de la classe Calculation
+	// Objet th:object de la balise form
 	@PostMapping("/calculator")
 	public String calculate(@Valid Calculation calculation, BindingResult bindingResult, Model model) {
 
 		final CalculationType type = CalculationType.valueOf(calculation.getCalculationType());
-		final CalculationModel calculationModel = new CalculationModel(
-				type,
-				calculation.getLeftArgument(),
+		final CalculationModel calculationModel = new CalculationModel(type, calculation.getLeftArgument(),
 				calculation.getRightArgument());
 
 		final CalculationModel response = calculatorService.calculate(calculationModel);
