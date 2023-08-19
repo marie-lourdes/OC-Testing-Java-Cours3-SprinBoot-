@@ -49,6 +49,7 @@ public class CalculatorControllerSIT {
 System.out.println("result class from controllr"+result.getResponse().getClass());
 //--> result from controllrclass org.springframework.mock.web.MockHttpServletResponse
 System.out.println("result from controllr"+result.getResponse().getContentAsString());
+//--> return content html of template calculator
 		// THEN
 		assertThat(result.getResponse().getContentAsString())
 				.contains("id=\"solution\"")
