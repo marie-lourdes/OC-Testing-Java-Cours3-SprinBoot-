@@ -49,5 +49,7 @@ public class CalculatorController {
 
 		model.addAttribute("response", response);
 		return CALCULATOR_TEMPLATE; // cf. resources/templates/calculator.html
+		// return page html and th:fiel=*{calculationtype} become in the DOM an attribut
+		// id ="caculationtype"
 	}
 }
