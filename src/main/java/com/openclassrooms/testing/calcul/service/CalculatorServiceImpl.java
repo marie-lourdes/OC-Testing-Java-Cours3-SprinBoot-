@@ -2,6 +2,8 @@ package com.openclassrooms.testing.calcul.service;
 
 import javax.inject.Named;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.openclassrooms.testing.calcul.domain.Calculator;
 import com.openclassrooms.testing.calcul.domain.model.CalculationModel;
 import com.openclassrooms.testing.calcul.domain.model.CalculationType;
@@ -13,6 +15,7 @@ public class CalculatorServiceImpl implements CalculatorService {
 
 	private final SolutionFormatter solutionFormatter;
 
+	@Autowired
 	public CalculatorServiceImpl(Calculator calculator, SolutionFormatter solutionFormatter) {
 		this.calculator = calculator;
 		this.solutionFormatter = solutionFormatter;

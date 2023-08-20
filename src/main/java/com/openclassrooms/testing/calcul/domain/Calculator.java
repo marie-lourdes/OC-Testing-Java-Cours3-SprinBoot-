@@ -3,9 +3,7 @@ package com.openclassrooms.testing.calcul.domain;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.inject.Named;
-
-@Named
+//@Named
 public class Calculator {
 
 	public int add(int a, int b) {
