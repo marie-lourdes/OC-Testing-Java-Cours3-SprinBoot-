@@ -41,19 +41,19 @@ public class CalculatorControllerSIT {
 		// WHEN
 		final MvcResult result = mockMvc.perform(
 				MockMvcRequestBuilders.post("/calculator")
-						.param("leftArgument", "2")
-						.param("rightArgument", "3")
-						.param("calculationType", "ADDITION"))
+				.param("leftArgument", "2")
+				.param("rightArgument", "3")
+				.param("calculationType", "ADDITION"))
 				.andExpect(MockMvcResultMatchers.status().is2xxSuccessful())
 				.andReturn();
-System.out.println("result class from controllr"+result.getResponse().getClass());
-//--> result from controllrclass org.springframework.mock.web.MockHttpServletResponse
-System.out.println("result from controllr"+result.getResponse().getContentAsString());
-//--> return content html of template calculator
+		System.out.println("result class from controllr"+result.getResponse().getClass());
+		//--> result from controllrclass org.springframework.mock.web.MockHttpServletResponse
+		System.out.println("result from controllr"+result.getResponse().getContentAsString());
+		//--> return content html of template calculator
 		// THEN
 		assertThat(result.getResponse().getContentAsString())
-				.contains("id=\"solution\"")
-				.contains(">5</span");
+		.contains("id=\"solution\"")
+		.contains(">5</span");
 		verify(calculator).add(2, 3);
 		verify(solutionFormatter).format(5);
 	}
